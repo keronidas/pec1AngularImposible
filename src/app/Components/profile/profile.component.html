@@ -1,0 +1,52 @@
+<div style="margin-left: auto; margin-right: auto">
+  <p id="profileFeedback"></p>
+</div>
+<div>
+  <h1>Profile</h1>
+
+  <!-- TO DO 6 -->
+  <div class="">
+    <form [formGroup]="profileForm" (ngSubmit)="updateUser()" class="mi-formulario">
+      <div>
+        <label for="name">Nombre:</label>
+        <input type="text" formControlName="name" id="name">
+        <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched">
+          <span *ngIf="profileForm.get('name')?.errors?.required" class="error">El nombre es requerido.</span>
+        </div>
+      </div>
+  
+      <div>
+        <label for="surname_1">Primer Apellido:</label>
+        <input type="text" formControlName="surname_1" id="surname_1">
+        <div *ngIf="profileForm.get('surname_1')?.invalid && profileForm.get('surname_1')?.touched">
+          <span *ngIf="profileForm.get('surname_1')?.errors?.required" class="error">El primer apellido es requerido.</span>
+        </div>
+      </div>
+  
+      <div>
+        <label for="surname_2">Segundo Apellido:</label>
+        <input type="text" formControlName="surname_2" id="surname_2">
+        <div *ngIf="profileForm.get('surname_2')?.invalid && profileForm.get('surname_2')?.touched">
+          <span *ngIf="profileForm.get('surname_2')?.errors?.minLength" class="error">Longitud minima de 5 caracteres.</span>
+        </div>
+      </div>
+  
+      <div>
+        <label for="alias">Alias:</label>
+        <input type="text" formControlName="alias" id="alias">
+        <div *ngIf="profileForm.get('alias')?.invalid && profileForm.get('alias')?.touched">
+          <span *ngIf="profileForm.get('alias')?.errors?.required" class="error">El alias es requerido.</span>
+        </div>
+      </div>
+  
+      <div>
+        <label for="birth">Cumpleaños:</label>
+        <input type="date" formControlName="birth_date" id="birth">
+        <div *ngIf="profileForm.get('birth_date')?.invalid && profileForm.get('birth_date')?.touched">
+          <span *ngIf="profileForm.get('birth_date')?.errors?.required" class="error">La fecha de nacimiento es requerida.</span>
+        </div>
+      </div>
+      <button (onClick)="updateUser">Registrar</button>
+    </form>
+  </div>
+</div>

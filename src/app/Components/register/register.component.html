@@ -1,0 +1,64 @@
+<div style="margin-left: auto; margin-right: auto">
+  <p id="registerFeedback" class="">
+    <span *ngIf="isValidForm===true">Ok</span>
+    <span *ngIf="isValidForm===false">NoOk</span>
+
+
+
+  </p>
+</div>
+<div>
+  <h1>Register</h1>
+
+  <!-- TO DO 18 -->
+
+
+
+</div>
+<div class="">
+  <form [formGroup]="registerForm" (ngSubmit)="register()" class="mi-formulario">
+    <div>
+      <label for="name">Nombre:</label>
+      <input type="text" formControlName="name" id="name">
+      <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+        <span *ngIf="registerForm.get('name')?.errors?.required" class="error">El nombre es requerido.</span>
+      </div>
+    </div>
+
+    <div>
+      <label for="surname_1">Primer Apellido:</label>
+      <input type="text" formControlName="surname_1" id="surname_1">
+      <div *ngIf="registerForm.get('surname_1')?.invalid && registerForm.get('surname_1')?.touched">
+        <span *ngIf="registerForm.get('surname_1')?.errors?.required" class="error">El primer apellido es requerido.</span>
+      </div>
+    </div>
+
+    <div>
+      <label for="surname_2">Segundo Apellido:</label>
+      <input type="text" formControlName="surname_2" id="surname_2">
+      <div *ngIf="registerForm.get('surname_2')?.invalid && registerForm.get('surname_2')?.touched">
+        <span *ngIf="registerForm.get('surname_2')?.errors?.minLength" class="error">Longitud minima de 5 caracteres.</span>
+      </div>
+    </div>
+
+    <div>
+      <label for="alias">Alias:</label>
+      <input type="text" formControlName="alias" id="alias">
+      <div *ngIf="registerForm.get('alias')?.invalid && registerForm.get('alias')?.touched">
+        <span *ngIf="registerForm.get('alias')?.errors?.required" class="error">El alias es requerido.</span>
+      </div>
+    </div>
+
+    <div>
+      <label for="birth">Cumpleaños:</label>
+      <input type="date" formControlName="birth_date" id="birth">
+      <div *ngIf="registerForm.get('birth_date')?.invalid && registerForm.get('birth_date')?.touched">
+        <span *ngIf="registerForm.get('birth_date')?.errors?.required" class="error">La fecha de nacimiento es requerida.</span>
+      </div>
+    </div>
+    <button (onClick)="register">Registrar</button>
+  </form>
+</div>
+
+  
+
