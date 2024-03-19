@@ -4,13 +4,13 @@
 <div>
   <h1>Profile</h1>
 
-  <!-- TO DO 6 -->
+  <!-- TO DO 6 works! -->
   <div class="">
     <form [formGroup]="profileForm" (ngSubmit)="updateUser()" class="mi-formulario">
       <div>
         <label for="name">Nombre:</label>
         <input type="text" formControlName="name" id="name">
-        <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched">
+        <div *ngIf="profileForm.get('name')?.touched">
           <span *ngIf="profileForm.get('name')?.errors?.required" class="error">El nombre es requerido.</span>
         </div>
       </div>
@@ -18,7 +18,7 @@
       <div>
         <label for="surname_1">Primer Apellido:</label>
         <input type="text" formControlName="surname_1" id="surname_1">
-        <div *ngIf="profileForm.get('surname_1')?.invalid && profileForm.get('surname_1')?.touched">
+        <div *ngIf="profileForm.get('surname_1')?.touched">
           <span *ngIf="profileForm.get('surname_1')?.errors?.required" class="error">El primer apellido es requerido.</span>
         </div>
       </div>
@@ -26,23 +26,40 @@
       <div>
         <label for="surname_2">Segundo Apellido:</label>
         <input type="text" formControlName="surname_2" id="surname_2">
-        <div *ngIf="profileForm.get('surname_2')?.invalid && profileForm.get('surname_2')?.touched">
-          <span *ngIf="profileForm.get('surname_2')?.errors?.minLength" class="error">Longitud minima de 5 caracteres.</span>
+        <div *ngIf="profileForm.get('surname_2')?.touched">
+          <span *ngIf="profileForm.get('surname_2')?.errors?.minlength" class="error">Longitud minima de 5 caracteres.</span>
         </div>
       </div>
   
       <div>
         <label for="alias">Alias:</label>
         <input type="text" formControlName="alias" id="alias">
-        <div *ngIf="profileForm.get('alias')?.invalid && profileForm.get('alias')?.touched">
+        <div *ngIf="profileForm.get('alias')?.touched">
           <span *ngIf="profileForm.get('alias')?.errors?.required" class="error">El alias es requerido.</span>
+          <span *ngIf="profileForm.get('alias')?.errors?.minlength" class="error">Minimo 5 caracteres</span>
         </div>
       </div>
-  
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" formControlName="email" id="email">
+        <div *ngIf="profileForm.get('email')?.touched">
+          <span *ngIf="profileForm.get('email')?.errors?.required" class="error">Email necesario</span>
+          <span *ngIf="profileForm.get('email')?.errors?.email" class="error">Necesario formato Email</span>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" id="password">
+        <div *ngIf="profileForm.get('password')?.touched">
+          <p *ngIf="profileForm.get('password')?.errors?.required" class="error">Password necesario.</p>
+          <p *ngIf="profileForm.get('password')?.errors?.minlength" class="error">Longitud minima de 5 caracteres.</p>
+          <p *ngIf="profileForm.get('password')?.errors?.password" class="error">Necesario que este en formato password.</p>
+        </div>
+      </div>
       <div>
         <label for="birth">Cumpleaños:</label>
         <input type="date" formControlName="birth_date" id="birth">
-        <div *ngIf="profileForm.get('birth_date')?.invalid && profileForm.get('birth_date')?.touched">
+        <div *ngIf="profileForm.get('birth_date')?.touched">
           <span *ngIf="profileForm.get('birth_date')?.errors?.required" class="error">La fecha de nacimiento es requerida.</span>
         </div>
       </div>

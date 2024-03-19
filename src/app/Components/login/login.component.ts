@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthDTO } from 'src/app/Models/auth.dto';
 import { HeaderMenus } from 'src/app/Models/header-menus.dto';
@@ -14,13 +14,13 @@ import { SharedService } from 'src/app/Services/shared.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  
-  // TO DO 19
+
+  // TO DO 19 works!
   loginUser: AuthDTO;
   email!: FormControl;
   password!: FormControl;
   loginForm!: FormGroup;
-  
+
 
   constructor(
     private formBuilder: UntypedFormBuilder,
@@ -30,26 +30,32 @@ export class LoginComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private router: Router
   ) {
-    // TO DO 20
+    // TO DO 20 works!
 
-    this.loginUser=new AuthDTO("","","","");
-    this.loginForm=this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]]
+    this.loginUser = new AuthDTO("", "", "", "");
+
+    this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.password = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]);
+
+    this.loginForm = this.formBuilder.group({
+      email: this.email,
+      password: this.password,
     });
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   async login(): Promise<void> {
-    
+
     let responseOK: boolean = false;
     let errorResponse: any;
 
     this.loginUser.email = this.email.value;
     this.loginUser.password = this.password.value;
+
     try {
+
       const authToken = await this.authService.login(this.loginUser);
       responseOK = true;
       this.loginUser.user_id = authToken.user_id;
@@ -84,6 +90,6 @@ export class LoginComponent implements OnInit {
       this.headerMenusService.headerManagement.next(headerInfo);
       this.router.navigateByUrl('home');
     }
-    
+
   }
 }

@@ -15,7 +15,7 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  // TO DO 16
+  // TO DO 16 works!
   registerUser: UserDTO;
 
   name!: FormControl;
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) {
 
-    // TO DO 17
+    // TO DO 17 works!
     this.registerUser = new UserDTO("", "", "", "", new Date(), "", "");
     this.isValidForm = null;
     this.registerForm = this.formBuilder.group({
@@ -67,6 +67,7 @@ export class RegisterComponent implements OnInit {
     let errorResponse: any;
 
     if (this.registerForm.invalid) {
+      console.log("no entra")
       return;
     }
 

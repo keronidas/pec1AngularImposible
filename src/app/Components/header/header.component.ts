@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    // TO DO 15
+    // TO DO 15 works!
     this.localStorageService.remove('user_id');
     this.localStorageService.remove('access_token');
     const headerInfo: HeaderMenus = {

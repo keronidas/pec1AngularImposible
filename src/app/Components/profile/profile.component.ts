@@ -13,7 +13,7 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class ProfileComponent implements OnInit {
   
-  // TO DO 4
+  // TO DO 4 works!
   profileUser: UserDTO;
 
   name!: FormControl;
@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
 
 
   ) {
-    // TO DO 5
+    // TO DO 5 works!
     this.profileUser = new UserDTO("", "", "", "", new Date(), "", "");
     this.isValidForm = null;
     this.profileForm = this.formBuilder.group({
