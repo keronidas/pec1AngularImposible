@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   password!: FormControl;
   registerForm: FormGroup;
   isValidForm: boolean | null;
-  valorMensaje:string="";
+  valorMensaje: string = "";
 
   constructor(
     private formBuilder: UntypedFormBuilder,
@@ -49,19 +49,15 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]]
 
-    })
-  
-
-
-
+    });
   }
 
   ngOnInit(): void { }
 
-  
+
 
   async register(): Promise<void> {
-    
+
     let responseOK: boolean = false;
     this.isValidForm = false;
     let errorResponse: any;
@@ -105,6 +101,6 @@ export class RegisterComponent implements OnInit {
     }
     console.log(this.isValidForm)
   }
-  
-  }
+
+}
 
