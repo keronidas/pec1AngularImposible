@@ -38,11 +38,14 @@ export class CategoriesListComponent {
   }
 
   createCategory(): void {
-    // TODO 7
+    // TO DO 7 works!
+    this.router.navigateByUrl('/user/category/');
+
   }
 
   updateCategory(categoryId: string): void {
-    // TODO 8
+    // TO DO 8 works!
+    this.router.navigateByUrl('/user/category/' + categoryId);
   }
 
   async deleteCategory(categoryId: string): Promise<void> {
@@ -58,7 +61,8 @@ export class CategoriesListComponent {
           categoryId
         );
         if (rowsAffected.affected > 0) {
-          // TODO 9
+          // TO DO 9 works!
+          this.loadCategories();
         }
       } catch (error: any) {
         errorResponse = error.error;
