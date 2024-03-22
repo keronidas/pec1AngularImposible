@@ -19,7 +19,7 @@ export class PostService {
   private controller: string;
 
   constructor(private http: HttpClient) {
-    this.controller = 'posts';
+    this.controller = 'post';
     this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
   }
 
@@ -29,12 +29,12 @@ export class PostService {
 
   getPostsByUserId(userId: string): Promise<PostDTO[]> {
     return this.http
-      .get<PostDTO[]>('http://localhost:3000/users/posts/' + userId)
+      .get<PostDTO[]>('http://localhost:3000/user/post/' + userId)
       .toPromise();
   }
 
   createPost(post: PostDTO): Promise<PostDTO> {
-    return this.http.post<PostDTO>(this.urlBlogUocApi, post).toPromise();
+    return this.http.post<PostDTO>(this.urlBlogUocApi+"s", post).toPromise();
   }
 
   getPostById(postId: string): Promise<PostDTO> {

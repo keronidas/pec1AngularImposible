@@ -1,67 +1,51 @@
 <div style="margin-left: auto; margin-right: auto">
   <p id="postFeedback"></p>
 </div>
+
+<!-- TO DO 14 works! -->
+
+
 <div>
-  <!-- TODO 14 -->
-
-
-  <form [formGroup]="registerForm" (ngSubmit)="register()" class="mi-formulario">
+  <form [formGroup]="registerForm" (ngSubmit)="savePost()" class="mi-formulario">
     <div>
-      <label for="name">Nombre:</label>
-      <input type="text" formControlName="name" id="name">
-      <div *ngIf="registerForm.get('name')?.touched">
-        <span *ngIf="registerForm.get('name')?.errors?.required" class="error">El nombre es requerido.</span>
+      <label for="title">Nombre:</label>
+      <input type="text" formControlName="title" id="title">
+      <div *ngIf="registerForm.get('title')?.touched">
+        <span *ngIf="registerForm.get('title')?.errors?.required" class="error">El titulo es requerido.</span>
+        <span *ngIf="registerForm.get('title')?.errors?.maxlength" class="error">No se puede agregar mas de 55 caracteres</span>
+      </div>
+    </div>
+    <div>
+      <label for="description">Primer Apellido:</label>
+      <input type="text" formControlName="description" id="description">
+      <div *ngIf="registerForm.get('description')?.touched">
+        <span *ngIf="registerForm.get('description')?.errors?.required" class="error">Una descripcion es
+          necesaria</span>
+        <span *ngIf="registerForm.get('description')?.errors?.maxlength" class="error">No se permiten mas de 255
+          caracteres</span>
       </div>
     </div>
 
     <div>
-      <label for="surname_1">Primer Apellido:</label>
-      <input type="text" formControlName="surname_1" id="surname_1">
-      <div *ngIf="registerForm.get('surname_1')?.touched">
-        <span *ngIf="registerForm.get('surname_1')?.errors?.required" class="error">El primer apellido es requerido.</span>
+      <label for="publication_date">Fecha</label>
+      <input type="date" formControlName="publication_date" id="publication_date">
+      <div *ngIf="registerForm.get('publication_date')?.touched">
+        <span *ngIf="registerForm.get('publication_date')?.errors?.required" class="error">La fecha es obligatoria</span>
       </div>
     </div>
 
-    <div>
-      <label for="surname_2">Segundo Apellido:</label>
-      <input type="text" formControlName="surname_2" id="surname_2">
-      <div *ngIf="registerForm.get('surname_2')?.touched">
-        <span *ngIf="registerForm.get('surname_2')?.errors?.minlength" class="error">Longitud minima de 5 caracteres.</span>
+    <div class="">
+      <label for="categories">Categorias</label>
+      <select name="" id="" formControlName="categories" multiple>
+        <option *ngFor="let categoria of categoryList" [value]="categoria.categoryId">{{ categoria.title }}</option>
+      </select>
+      
+      <div *ngIf="registerForm.get('categories')?.touched">
+        <span *ngIf="registerForm.get('categories')?.errors?.required" class="error">Seleccionar las categorias es obligatorio</span>
       </div>
     </div>
 
-    <div>
-      <label for="alias">Alias:</label>
-      <input type="text" formControlName="alias" id="alias">
-      <div *ngIf="registerForm.get('alias')?.touched">
-        <span *ngIf="registerForm.get('alias')?.errors?.required" class="error">El alias es requerido.</span>
-        <span *ngIf="registerForm.get('alias')?.errors?.minlength" class="error">Minimo 5 caracteres</span>
-      </div>
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="text" formControlName="email" id="email">
-      <div *ngIf="registerForm.get('email')?.touched">
-        <span *ngIf="registerForm.get('email')?.errors?.required" class="error">Email necesario</span>
-        <span *ngIf="registerForm.get('email')?.errors?.email" class="error">Necesario formato Email</span>
-      </div>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" formControlName="password" id="password">
-      <div *ngIf="registerForm.get('password')?.touched">
-        <p *ngIf="registerForm.get('password')?.errors?.required" class="error">Password necesario.</p>
-        <p *ngIf="registerForm.get('password')?.errors?.minlength" class="error">Longitud minima de 5 caracteres.</p>
-        <p *ngIf="registerForm.get('password')?.errors?.password" class="error">Necesario que este en formato password.</p>
-      </div>
-    </div>
-    <div>
-      <label for="birth">Cumpleaños:</label>
-      <input type="date" formControlName="birth_date" id="birth">
-      <div *ngIf="registerForm.get('birth_date')?.touched">
-        <span *ngIf="registerForm.get('birth_date')?.errors?.required" class="error">La fecha de nacimiento es requerida.</span>
-      </div>
-    </div>
+
     <button type="submit" [disabled]="registerForm.invalid">Registrar</button>
   </form>
 

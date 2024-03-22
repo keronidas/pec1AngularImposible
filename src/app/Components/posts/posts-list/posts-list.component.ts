@@ -25,7 +25,7 @@ export class PostsListComponent {
 
   private async loadPost(): Promise<void> {
     let errorResponse: any;
-    const userId = this.localStorageService.get('post_id');
+    const userId = this.localStorageService.get('user_id');
     if (userId) {
       try {
         this.posts = await this.postService.getPostsByUserId(
