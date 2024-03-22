@@ -16,14 +16,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let category of categories">
+    <tr *ngFor="let post of posts">
       <td>{{ post.postId }}</td>
       <td>{{ post.title }}</td>
       <td>{{ post.description }}</td>
-      <td>{{ post.css_color }}</td>
       <td>
-        <button (click)="updateCategory(post.postId)">UPDATE</button>
-        <button (click)="deleteCategory(post.postId)">DELETE</button>
+        <button (click)="updatePost(post.postId)">UPDATE</button>
+        <button (click)="deletePost(post.postId)">DELETE</button>
       </td>
     </tr>
   </tbody>
