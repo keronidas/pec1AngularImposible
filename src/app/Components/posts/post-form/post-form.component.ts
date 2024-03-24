@@ -66,7 +66,7 @@ export class PostFormComponent implements OnInit {
     }
 }
 
-  // TODO 13
+  // TO DO 13
   async ngOnInit(): Promise<void> {
     let errorResponse: any;
 

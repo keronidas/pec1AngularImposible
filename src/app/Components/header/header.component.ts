@@ -36,6 +36,9 @@ export class HeaderComponent implements OnInit {
   home(): void {
     this.router.navigateByUrl('home');
   }
+  dashboard(): void {
+    this.router.navigateByUrl('dashboard');
+  }
 
   login(): void {
     this.router.navigateByUrl('login');

@@ -37,6 +37,13 @@ export class HomeComponent {
   }
   private async loadPosts(): Promise<void> {
     // TODO 2
+    let errorResponse: any;
+    try {
+      this.posts = await this.postService.getPosts();
+    } catch (error: any) {
+      errorResponse = error.error;
+      this.sharedService.errorLog(errorResponse);
+    }
   }
 
   async like(postId: string): Promise<void> {
