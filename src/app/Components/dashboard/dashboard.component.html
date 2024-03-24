@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of posts">
+            <td>{{ post.title }}</td>
+            <td>{{ post.num_likes }}</td>
+            <td>{{ post.num_dislikes }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="stats">
+        <div class="likes-box">
+            <p>Total Likes: {{ totalLikes }}</p>
+        </div>
+        <div class="dislikes-box">
+            <p>Total Dislikes: {{ totalDislikes }}</p>
+        </div>
+    </div>
+</div>
