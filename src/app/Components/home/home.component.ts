@@ -36,7 +36,7 @@ export class HomeComponent {
     );
   }
   private async loadPosts(): Promise<void> {
-    // TODO 2
+    // TO DO 2
     let errorResponse: any;
     try {
       this.posts = await this.postService.getPosts();

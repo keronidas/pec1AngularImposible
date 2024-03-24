@@ -1,0 +1,94 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6); /* offsetX, offsetY, blurRadius, color */
+
+
+    .categories {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        .category {
+            margin: 0 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+           
+        }
+    }
+
+
+
+    .post-title {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .post-body {
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        div{
+            margin-bottom: 10px;
+        }
+    }
+
+}
+
+/* Estilos base para los botones */
+.like-btn,
+.dislike-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Estilos específicos para el botón de "Like" */
+.like-btn {
+  background-color: #4caf50; /* Verde */
+  color: #fff;
+}
+
+.like-btn:hover {
+  background-color: #45a049; /* Verde más oscuro al pasar el ratón */
+}
+
+/* Estilos específicos para el botón de "Dislike" */
+.dislike-btn {
+  background-color: #f44336; /* Rojo */
+  color: #fff;
+}
+
+.dislike-btn:hover {
+  background-color: #e53935; /* Rojo más oscuro al pasar el ratón */
+}

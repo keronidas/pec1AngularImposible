@@ -1,14 +1,39 @@
-<!-- TODO 3 -->
+<!-- TO DO 3 -->
 <div>
     <div class="post-container">
         <div class="post" *ngFor="let post of posts">
             <div class="post-header">
-                1
-                <!-- <div class="post-title">{{ post.title }}</div>
-                <div class="post-date">{{ post.date }}</div> -->
+                <div class="categories">
+                    <div class="category" [style.background-color]="category.css_color"
+                        *ngFor="let category of post.categories">
+                        <span class="">{{category.title}}</span>
+
+                        <!-- Para ver los campos de categoria -->
+                        <!-- <p>{{category | json}}</p> -->
+
+                    </div>
+                </div>
+                <div class="post-title">Title: {{ post.title }}</div>
+                <div class="post-body">
+                    <div class="post-description">Description: {{ post.description }}</div>
+                    <div class="post-num_likes">
+                        <span>Likes: {{ post.num_likes }}</span>
+                        <div *ngIf="showButtons">
+                            <button class="like-btn" (click)="like(post.postId)">LIKE</button>
+                        </div>
+                    </div>
+                    <div class="post-num_dislikes">
+                        <span>Dislikes: {{ post.num_dislikes }}</span>
+                        <div *ngIf="showButtons">
+                            <Button class="dislike-btn" (click)="dislike(post.postId)">DISLIKE</Button>
+                        </div>
+                    </div>
+                    <div class="post-publication_date">Publication Date: {{ post.publication_date |formatDate:4}}</div>
+                    <div class="post-userAlias">User Alias: {{ post.userAlias }}</div>
+                </div>
             </div>
-           2
-           <!--  <div class="post-body">{{ post.body }}</div> -->
+
+
         </div>
     </div>
 </div>
